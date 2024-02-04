@@ -1,0 +1,16 @@
+
+.footer{
+      background: linear-gradient(
+        to bottom,
+        #f2f8fb,
+        #e0eff6,
+        #b3ccf9
+      );
+    }
+    .VFoot{
+      padding: 30px;
+    }
+    .head{
+      color:#0463bb;
+      margin-bottom: 15px;
+    }

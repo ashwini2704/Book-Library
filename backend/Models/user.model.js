@@ -8,7 +8,7 @@ const userSchema = mongoose.Schema({
       },
       photo: {
         type: String,
-        required: true,
+        default:"https://img.freepik.com/premium-vector/avatar-profile-icon-vector-illustration_276184-165.jpg"
       },
       email: {
         type: String,

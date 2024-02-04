@@ -85,7 +85,7 @@ const loginUser = async(req,res) => {
             if(err) {
                 res.status(200).send({"Error" : err})
             }else{
-                res.status(200).send({"msg" : "Login successful!", "token" : jwt.sign({userID:user._id}, process.env.SECRET_KEY )})
+                res.status(200).send({"msg" : "Login successful!", "token" : jwt.sign({userID:user._id}, process.env.SECRET_KEY ),role:user.role})
             }
         });
     } catch (error) {
