@@ -6,13 +6,17 @@ import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from 'react-router-dom';
 import './var.css'
 import { AuthContextProvider } from './Context/AuthContext';
+import { ErrorBoundary } from './Components/Error';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <BrowserRouter>
+   <ErrorBoundary>
+
   <AuthContextProvider>
     <App />
   </AuthContextProvider>
+   </ErrorBoundary>
   </BrowserRouter>
 );
 

@@ -7,6 +7,7 @@ import SingleBook from '../Components/SingleBook';
 import Signup from '../Pages/Signup';
 import About from '../Pages/About';
 import { PrivateRoute } from './PrivateRoute';
+import Admin from '../Components/Dashboard/Admin';
 
 const AllRoutes = () => {
   return (
@@ -23,6 +24,7 @@ const AllRoutes = () => {
                 <SingleBook />
             </PrivateRoute>
       } />
+      <Route path="/admin" element={<Admin />} />
       <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Signup />} />
     </Routes>

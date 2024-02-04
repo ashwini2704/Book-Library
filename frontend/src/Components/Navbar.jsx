@@ -1,18 +1,17 @@
 import React, { useContext } from 'react';
-import { Link, NavLink, useNavigate } from 'react-router-dom';
+import { Link, NavLink} from 'react-router-dom';
 import styled from 'styled-components';
 import { authContext } from '../Context/AuthContext';
 import { BASE_URL } from '../config';
-import { toast } from 'react-toastify';
 
 const Navbar = () => {
-  const {user,role,token,isAuth,dispatch} = useContext(authContext)
-   const navigate= useNavigate()
+  const {role,isAuth,dispatch} = useContext(authContext)
+   
 
 
   const handleLogout =async (e) => {
     try {
-      const res = await fetch(`${BASE_URL}/users/logout`,{
+      const res = await fetch(`${BASE_URL}/user/logout`,{
         method:'post',
         headers : {
           'Content-type' : 'application/json'
@@ -20,28 +19,23 @@ const Navbar = () => {
       })
 
       const result = await res.json();
-// console.log(result)
-      if(!res.ok) {
-        throw new Error(result.message)
-      }
 
-      toast.success(result.msg);
       dispatch({
-        type : 'LOGOUT'
+        type : 'LOGIN_OUT'
       })
-      navigate('/')
       
     } catch (error) {
-      toast.error(error.message);
+      console.log(error.message)
     }
     
   }
+
 
   return (
     <HEAD>
       <div className='logo'>Library</div>
       <div className='navigation'>
-        <CustomNavLink to='/' exact activeClassName='active-link'>
+        <CustomNavLink to='/' exact="true" activeClassName='active-link'>
           Home
         </CustomNavLink>
         <CustomNavLink to='/about' activeClassName='active-link'>
@@ -50,12 +44,19 @@ const Navbar = () => {
         <CustomNavLink to='/books' activeClassName='active-link'>
           Books
         </CustomNavLink>
+        {
+            role==="CREATOR" ?
+            <CustomNavLink to='/admin' activeClassName='active-link'>
+            Dashboard
+            </CustomNavLink>
+            : ""
+        }
       </div>
 
       {/* ========nav-right============ */}
       <div className='right'>
         {
-          token ? 
+          isAuth ? 
           <div>
             <button className='button' onClick={handleLogout}>
               Logout
@@ -127,6 +128,7 @@ const HEAD = styled.div`
     justify-content: center;
     align-items: center;
     border: 1px solid #e97272;
+    cursor:pointer;
   }
   .right {
     cursor: pointer;

@@ -65,6 +65,7 @@ const LOGIN = styled.div`
       color: white;
       font-size: 17px;
       font-weight: 500;
+      cursor:pointer;
 }
 h2{
       margin-bottom: 20px;
