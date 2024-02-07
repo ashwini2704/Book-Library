@@ -2,7 +2,7 @@ Book-Library is a web-application where user with role VIEW_ALL can see all the 
 
 Backend deployed link - https://booklibrary-pir4.onrender.com
 
-Frontend deployed link - https://library-98lpfp8hi-ashwinis-projects-20cd0e82.vercel.app
+Frontend deployed link - https://library-phi-umber.vercel.app/
 
 API - 
 For registering a new user - https://booklibrary-pir4.onrender.com/user/register
